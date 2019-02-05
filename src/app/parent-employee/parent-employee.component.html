@@ -1,0 +1,27 @@
+<div class="container">
+  <app-create-employee
+    [employee]="employee"
+    [dilamArki]="customString"
+  (employeeEmitter)="processEmployee($event)">
+  </app-create-employee>
+  <br>
+  <div>
+    <fieldset>
+      <legend>Employee List</legend>
+      <table class="employees">
+        <tr>
+          <!--<th>ID</th>-->
+          <th>Name</th>
+          <th>Email</th>
+        </tr>
+        <tr *ngFor="let employeeObj of employees">
+          <!--<td>{{employeeObj.id}}</td>-->
+          <td>{{employeeObj.name}}</td>
+          <td>{{employeeObj.email}}</td>
+          <td><button class="btn btn-primary" (click)="editEmployee(employeeObj)">Edit</button></td>
+          <td><button class="btn btn-primary" (click)="deleteEmployee(employeeObj)">Delete</button></td>
+        </tr>
+      </table>
+    </fieldset>
+  </div>
+</div>
